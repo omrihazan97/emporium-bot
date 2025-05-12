@@ -1,5 +1,6 @@
 import logging
 import re
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
@@ -7,13 +8,13 @@ from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filte
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
-logger = logging.getLogger(name)
+logger = logging.getLogger(name)  # תיקון: שימוש ב-name במקום name
 
 # כתובת בסיס של קבצי התמונות בגיטהאב
 GITHUB_IMAGE_URL = "https://raw.githubusercontent.com/omrihazan97/emporium-bot/master/images"
 
 # הטוקן של הבוט שלך
-BOT_TOKEN = os.getenv("BOT_TOKEN")  # עדיף להשתמש במשתנה סביבה
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # הפונקציה שמופעלת כששולחים לבוט טקסט
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
